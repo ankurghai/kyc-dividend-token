@@ -1,7 +1,5 @@
 # Redbelly KYC Dividend Template
 
-![CI](https://github.com/redbellynetwork/kyc-dividend-template/actions/workflows/ci.yml/badge.svg)
-
 Production-ready template for KYC-gated dividend distribution on Redbelly Network.
 
 ## Quickstart
