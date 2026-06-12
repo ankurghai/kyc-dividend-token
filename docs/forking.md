@@ -12,6 +12,8 @@ Edit [`client.config.ts`](../client.config.ts):
 
 ## 2. Dividend payment token
 
+See [README — Dividend payment token](../README.md#dividend-payment-token) for decimals, amount scaling, and compatibility notes.
+
 - **Testnet:** leave `DIVIDEND_TOKEN_ADDRESS` empty to deploy `MockStableCoin`, or set a test stablecoin address.
 - **Mainnet:** set `DIVIDEND_TOKEN_ADDRESS` to your production dividend token (e.g. USDC-style 6-decimal token).
 
