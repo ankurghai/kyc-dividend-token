@@ -1,0 +1,56 @@
+{
+  "name": "redbelly-kyc-dividend-template",
+  "private": true,
+  "workspaces": [
+    "ui"
+  ],
+  "scripts": {
+    "setup": "npm install && cp -n .env.example .env 2>/dev/null || true && cp -n ui/.env.example ui/.env 2>/dev/null || true && echo 'Setup complete. Edit .env and client.config.ts, then run npm run deploy:testnet'",
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "test:fork": "RUN_FORK_TESTS=1 hardhat test",
+    "test:fork:testnet": "RUN_FORK_TESTS_TESTNET=1 hardhat test",
+    "coverage": "hardhat coverage",
+    "benchmark": "hardhat run scripts/gasBenchmark.ts",
+    "deploy": "hardhat run scripts/deploy.ts",
+    "deploy:testnet": "hardhat run scripts/deployTestnet.ts --network redbellyTestnet",
+    "deploy:mainnet": "hardhat run scripts/deploy.ts --network redbellyMainnet",
+    "seed:demo": "hardhat run scripts/seedDemo.ts --network redbellyTestnet",
+    "gen:ui-env": "hardhat run scripts/genUiEnv.ts --network redbellyTestnet",
+    "gen:ui-env:mainnet": "hardhat run scripts/genUiEnv.ts --network redbellyMainnet",
+    "verify:testnet": "hardhat run scripts/verify.ts --network redbellyTestnet",
+    "verify:mainnet": "hardhat run scripts/verify.ts --network redbellyMainnet",
+    "slither": "slither . --config-file slither.config.json || true",
+    "is-allowed": "hardhat run scripts/isAllowed.ts --network redbellyMainnet",
+    "ui:dev": "npm run dev -w ui",
+    "ui:build": "npm run build -w ui",
+    "ui:test": "npm run test -w ui",
+    "ui:e2e": "npm run e2e -w ui"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "4.9.6",
+    "ethers": "6.16.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.8",
+    "@nomicfoundation/hardhat-ethers": "^3.0.8",
+    "@nomicfoundation/hardhat-ignition": "^0.15.9",
+    "@nomicfoundation/hardhat-ignition-ethers": "^0.15.9",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.12",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.12",
+    "@nomicfoundation/ignition-core": "^0.15.9",
+    "@typechain/ethers-v6": "^0.5.1",
+    "@typechain/hardhat": "^9.1.0",
+    "@types/chai": "^4.3.20",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.10.2",
+    "dotenv": "16.4.7",
+    "hardhat": "2.22.17",
+    "hardhat-gas-reporter": "^1.0.10",
+    "solidity-coverage": "^0.8.14",
+    "ts-node": "10.9.2",
+    "typechain": "^8.3.2",
+    "typescript": "5.7.2"
+  }
+}
